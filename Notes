@@ -14,5 +14,14 @@ g++; source_file.ext {-g, -o} optional-  -g: generate debug info, -o: tells link
 .global- makes all labels in code globally visible to linker
 .section - Indicates the beginning of section
 .data - holds non-constant, initialized data 
+(data is embedded in executable file)
 .text- holds all program code
 .rodata- all constant variables; "ro" stands for read only
+.bss - hold non-constant, utilized data 
+(data is not embedded in the executiable file)
+.align tells the linker how to align data and code on byte bounderies 
+In assebly variable names and function names need to be converted to a label
+Syntax for label, "label name:"
+Push {Lr}
+ ^ pseudo instruction
+"Lr" holds the address of the next instruction after the function call is done 
