@@ -3,3 +3,16 @@ Agenda: Intro to ARM Assembly
 Quiz 1 and 2 will be available tomorrow after noon, due date TBD 
 
 If you want to set up the PI at home, use secure shell ssh 
+Creating a new user; type in demo
+Sudo- Super user do, Type in "Sudo adduser demo" to override the the root or group 
+"Sudo chmod go-xrw" g-group, o-other, x- execute, r-read, w-write, -:deny
+.s- assembly lang source file extension 
+g++; source_file.ext {-g, -o} optional-  -g: generate debug info, -o: tells linker to name the executable file 
+           ^ creates an internal file in memory called source_file.$
+               ^ gas/as gas-gnu assembly 
+                         as-assembler
+.global- makes all labels in code globally visible to linker
+.section - Indicates the beginning of section
+.data - holds non-constant, initialized data 
+.text- holds all program code
+.rodata- all constant variables; "ro" stands for read only
