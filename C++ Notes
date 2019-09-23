@@ -1,0 +1,17 @@
+"IF" statements, utilize: 
+"< , >" greater to or less than value 
+"==" value is to check if two values are equal to eachother 
+"!=" value is to check if two values are not equal to eachother 
+A function has a job to do something, every function starts with main
+To create another function, go outside main, hit return; "printSomething" 
+"()" add parameters if the function needs additional information; add two "{}" this is the body of the function 
+void means you are not looking for anything in return
+Anytime you want to use a specific function, type it into your main function in order for it to know which job you would like for it to
+perform
+function prototyping: later on C++ will know a function is created
+Whenever you are making parameters, list the type of data then give it names
+Making multiple parameters, whenenver you want per say, two numbers, seperate them within the same parameter with a comma
+Classes, are another way to group your functions which makes it easier in your function later on 
+Public: you can use it outside of your class, known as the access specifiyer
+Need to make an object of the class you are trying to use, "BuckysClass buckysObject; buckysObject.coolSaying
+String is basically just text 
