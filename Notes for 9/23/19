@@ -1,0 +1,34 @@
+Agenda: Continue intro to assembly 
+Quiz #1,2 online 9pm 
+Number systems program in C to be done in lab. 
+Commands: 
+Ls- List directing 
+-L option- detailed listening 
+cd - change directory 
+g++/as: C++ compiler (g++), as(assembly)
+gdb - gnu debugger 
+tui - text user interface 
+fs - focus set, (src: source), (cnd: command window)
+Commands cont: 
+i(info)
+r(register), b - sets breakpoint, r - run, s - step over 
+nano - text editor, you can also use: vi/vim gedit (gui based) emacs, .global, .line, .text}assembler directives
+Variables and functions are connected to labels, your_label: 
+cpsr: current program status register 
+N=0, Z=1,C=1,V=0
+AAPCS - Arm Architecture Procedure Call Standard 
+Function parameters, registers r0-r3 are used as first four parameters, if it has more than four it gets a little more tricky 
+registers r4-r11 must be saved if functions code uses them 
+return values: r0 holds cher, short int, integer r.v., r1 holds upper 32 bits of a long, r0 holds lower 32 bits of a long 
+printf (format string,[variable number of arguments])
+int main ()
+{ 
+
+printf("Hello Class!\n")
+return 0;
+
+}
+
+hello_msg: .asciz <---- asciz/zero terminated 
+"Hello Class!\n"
+.text, main: mov r0, = Hello_msg bl printf, mov r0, #0, mov pc, lr
