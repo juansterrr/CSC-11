@@ -1,0 +1,21 @@
+Agenda:
+Data: Bit processing 
+Logical/Rational(CMP)
+add {cc}{s'}, sub{cc}{s'}, mult{cc}{s'}, div and "%"} TBD 
+add with carry: adc{cc}{s'} reverse sub: rsub:{cc}{s'}
+sub r6,r4,r5: r6=r4-r5
+rsub: r6,r4,r5: r6=r5-r4
+Shift/Rotate: Shift left n-bits=multiplying by 2^n; Shift right n-bits= division by 2^n
+bitwise operations: (and,or,not,eor)
+
+x    y  | x and y      x or y     x eor y     not x 
+0    0  |    0           0           0          1
+0    1       0           1                   
+---------------------------------------------------------
+1    0       0           1                      0
+1    1       1           1                      
+
+Logical: 0=false, 1=true 
+
+
+
