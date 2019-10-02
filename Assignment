@@ -1,0 +1,19 @@
+
+#include <cstdio>
+
+int main() {
+    int x, y, mod;
+    
+    printf("Enter an integer: ");
+    scanf("%d",&x);
+    
+    printf("Convert %d to base? ", x);
+    scanf("%d", &y);    
+   
+    while((y<=2)||(y>=35)){
+        
+    }
+        
+    
+    return 0;
+}
