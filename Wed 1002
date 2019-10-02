@@ -1,0 +1,12 @@
+Agenda: 
+Review condition codesfor branches} will have a particular interesting side note 
+Intro to loop construct models in assembly lang. 
+cmp r0,#0, bleq my-fun, blne my_other_fun
+if(r0==0)
+my-fun()
+else 
+my_other_fun
+M#1 for functions that call functions within its function body
+your_function push {lr}
+your function's code 
+pop {pc}
