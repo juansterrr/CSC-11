@@ -10,3 +10,8 @@ M#1 for functions that call functions within its function body
 your_function push {lr}
 your function's code 
 pop {pc}
+M#2 for simple functions without functions calls inside function body 
+your_function: your functions code mov pslr 
+B<--- branch ( jump, goto, without, returniong to next inst)
+bl<-- branch with link-function calls 
+(modifiers LB,LR=PC+4
