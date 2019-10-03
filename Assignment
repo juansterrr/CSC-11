@@ -1,19 +1,52 @@
 
 #include <cstdio>
+using namespace std;
 
-int main() {
-    int x, y, mod;
+int main(int argc, char** argv){ 
+    int x; 
+    int base;
+    printf("Enter an unsigned integer in base 10: ");
+    scanf("%d", &x );
     
-    printf("Enter an integer: ");
-    scanf("%d",&x);
+    base =-1;
+            while (base < 2 || base > 36)
+            {
+                printf("Enter the base to convert to (2-36)");
+                scanf ("%d", &base);
+                
+                /*if (base < 2 || base > 36 )
+                {
+                    printf("The base must be between 2-36!\n");
+                } */
+                
+            }
+                    
+    char output[32];
+    int len = 0; 
     
-    printf("Convert %d to base? ", x);
-    scanf("%d", &y);    
-   
-    while((y<=2)||(y>=35)){
-        
+        while(x>0)
+       {
+            int digit = x % base; 
+            if (digit < 10)
+            {
+                output[len]= '0' + digit;
+            }
+            else 
+            {
+               output[len]= 'A' + (digit-10); 
+            }
+            
+            len++;
+            
+            x/=base;
+            
+        }
+    printf("Output: ");
+    for ( int i = len-1; i >= 0; i--)
+    {
+        printf("%c", output[i]);
     }
-        
-    
+    printf("\n");
+   
     return 0;
 }
