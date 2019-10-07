@@ -1,0 +1,24 @@
+while loop (test expression)
+= operal 1 rel. op 
+while_expr: cmp operand1, operand2
+b{cc_inverse} end_while_expr
+:
+:
+b while
+end_while_expr
+while loops pre-test loop body may run xero times!
+do/while = post test body will execute at least once 
+do_expr:
+= loop body 
+cmp operand1, operand2 
+b{cc*} DO EXPR 
+code after the do/while 
+examp;es for exper in your label: 
+r1>r2 with expr as : r1_gt_r2
+make the label of the while loop as verbertious as possible 
+while (r1 is <= 10)
+{
+  r0= r0+r1
+  r1++;
+  
+}
