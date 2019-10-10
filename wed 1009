@@ -1,1 +1,24 @@
+Agenda: Shifts/Rotates (barrel shifters)
+-LSL, -LSR, -ASR/ASL, -ROR/ROL, -RRX
+LSLn- logical shift left of n-bits, same as multiplying 2^n
+LSRn- Logical shift right of n-bits same as dividing by 2^n
+mov r0, 3117
+ldr r1, =#0xFFFFFFFF
+eor r2, r0, r1
+add r2,#1
 
+x    y |  x  eor   y
+0    0        0
+0    1        1
+1    0        1
+1    1        0
+
+ASL*n- Arithmetic shift left of n-bits same as multiplying 2n
+
+ASRn- Arithmetic Shift right of n-bits same as dividing by 2n
+
+Divide r0 by 5?
+
+rsb r1, r0, r0, lsr#2?
+
+r0=10 
