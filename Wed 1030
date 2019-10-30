@@ -1,0 +1,30 @@
+Agenda: Wrap on functions (recursion) 
+Intro to Arrays 
+Single Dimension 
+
+int fibo (int n) 
+{
+
+if (n-2)return 0, return fibo(n-1) + fibo(n-2) 
+                            ^           ^     = two recursion calls 
+poplt? popLessThan 
+____________________________________
+fibo: push {lr} 
+cmp R0,#2 
+LDRLT PC, [SP] #4 <--- poplt {pc}
+SUB R0,R0, #1
+push {R0} onto the stack 
+BL fibo 
+POP {R1} <--- holds our original R0-1 from first call 
+PUSH {R0} 
+SUB R0, R1, #1
+BL fibo
+POP {R1}
+ADD R0, R0, R1
+POP {pc} 
+
+fibo (4)-->fibo(3)+fibo(2)--->fibo(2)+fibo(1)---> fibo(1)+fibo(4)
+                                                     1      0 
+____________________________________________
+pop {reg}
+LDR reg [SP] #4 
