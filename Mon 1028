@@ -1,0 +1,50 @@
+Agenda: Functions 
+- frame pointer
+- reversion 
+push {r11,..}
+sub r11, sp, #4 -- R11=FP= Frame Pointer
+sub sp, r11, #x<---- # of bytes for local var 
+:
+:
+*add sp. r11, #4 
+pop{...}           
+
+Recursion: when a function calls itself -- basically a fancy way of doing a while loop 
+2-part process: 
+1. base case/exit condition: the case for condition that terminates reacursive function (loop)
+2. recursive function call- the code in which the dunction is called by itself with a new parameter argument. 
+n!= (n-1)(n-2)....1 
+c(52/5) = 52!= (52*)!5!
+factorial = n!=0!=1 -- 1!=1!   if not n<0, n! not defined 
+"-2!"= -2(-3)(-4)(-5)
+int factorial (int n) 
+{
+
+if (n<0) return n;
+if (n==0 || n==1) return 1;
+return n*factorial (n-1) 
+
+}
+
+c(100000/35)  100000!/99965!35!
+
+fact: push {lr}                                      R0=4 
+cmp R0, #0                                            BL factr 
+BLT fact_done2
+cmp R0, #1
+BLE fact_done
+PUSH {R0}
+SUB R0,#1<--- R0= R0_#1
+BL fact 
+POP {R1}
+MUL R0,R0,R1
+POP {pc}
+
+
+
+
+fact_done:mov R0,#1
+fact_done2: pop {pc}
+
+
+
