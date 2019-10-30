@@ -27,4 +27,13 @@ fibo (4)-->fibo(3)+fibo(2)--->fibo(2)+fibo(1)---> fibo(1)+fibo(4)
                                                      1      0 
 ____________________________________________
 pop {reg}
-LDR reg [SP] #4 
+LDR reg [SP] #4
+
+Arrays:
+ASM: ARR: .skip 40<---- # of bytes 
+ARR: .word 0,0,0,0,0,0,0,0,0,0
+
+
+MOV R0,#0 //R0 is our sum 
+LDR R1, =a //R1 holds the base address 
+
