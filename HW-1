@@ -1,0 +1,31 @@
+COMMENT!
+Student: Juan Lopez
+Class : CSC-11
+Problem:1a
+!
+
+TITLE Displaying the number 5          (AddSub.asm)
+
+; This program displays a 32-bit integer. 
+
+INCLUDE Irvine32.inc
+
+.data
+msg1 BYTE "Here is the number:",0
+number DWORD 5
+
+
+.code
+
+main PROC 
+
+	mov edx, OFFSET msg1 
+	mov eax, number 
+
+	call WriteString
+	call WriteDec
+	
+
+	exit
+main ENDP
+END main
