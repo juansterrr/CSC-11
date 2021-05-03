@@ -29,3 +29,35 @@ main PROC
 	exit
 main ENDP
 END main
+
+COMMENT!
+Student: Juan Lopez
+Class : CSC-11
+Problem:1b
+!
+
+TITLE Displaying the number -12       (AddSub.asm)
+
+; This program displays a 32-bit integer. 
+
+INCLUDE Irvine32.inc
+
+.data
+msg1 BYTE "Here is the number:",0
+number SDWORD -12
+
+
+.code
+
+main PROC 
+
+	mov edx, OFFSET msg1 
+	mov eax, number 
+
+	call WriteString
+	call WriteInt
+	
+
+	exit
+main ENDP
+END main
