@@ -1,0 +1,64 @@
+COMMENT!
+Student: Juan Lopez
+Class : CSC-11
+Problem:1b
+!
+
+TITLE Displaying the number -12       (AddSub.asm)
+
+; This program displays a 32-bit integer. 
+
+INCLUDE Irvine32.inc
+
+
+.data
+
+num1 SDWORD -12
+num2 SDWORD 3
+sum SDWORD ?
+
+sign BYTE "  +  ",0
+equal BYTE " = ",0
+msg BYTE "Enter an integer: ", 0
+
+
+.code
+
+main PROC 
+	
+	mov edx, OFFSET msg
+	call writestring 
+	call readint 
+
+	mov num1,eax 
+
+	call writestring
+	
+	call readint
+	mov num2, eax
+
+	mov eax, num1
+	call writedec 
+
+	mov edx, offset sign
+
+	mov eax, num2
+	call writeint
+
+	mov edx, offset equal 
+	call writestring
+
+	add eax, num1
+	call writedec 
+
+	call crlf
+
+
+	
+
+
+	
+
+	exit
+main ENDP
+END main
