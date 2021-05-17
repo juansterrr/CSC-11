@@ -48,7 +48,7 @@ END main
 
 ;====================
 
-; This program 
+; This program calculates the area of a rectangle
 
 INCLUDE Irvine32.inc
 
@@ -100,3 +100,45 @@ call crlf
 main ENDP
 END main
 
+
+;====================
+;Attached : HW 3abcde
+;====================
+
+;Program: HW_3c
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program displays the list of numbers in an array 
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+
+numbers DWORD 3 DUP(1,2,3)
+.code
+
+main PROC
+;------------------------
+mov esi, numbers 
+mov eax, esi 
+call WriteDec
+call crlf 
+;------------------------
+add esi, 1
+mov eax, esi
+call WriteDec
+call crlf 
+;------------------------
+add esi, 1
+mov eax, esi
+call WriteDec
+call crlf 
+
+	exit
+main ENDP
+END main
