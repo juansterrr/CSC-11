@@ -193,3 +193,47 @@ call WriteDec
 
 main ENDP
 END main
+
+
+;====================
+;Attached : HW 3abcde
+;====================
+
+;Program: HW_3e
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program displays different values from their variable 
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+num1 SWORD 3
+num2 SWORD -4
+
+
+.code
+
+main PROC
+;--------display num1-----------
+movzx eax, num1
+call WriteInt
+;--------display neg.-----------
+call crlf 
+neg eax 
+call WriteInt
+;-------display num2-------------
+call crlf
+movsx ebx, num2
+mov eax, ebx
+call WriteInt
+call crlf
+
+	exit
+
+main ENDP
+END main
