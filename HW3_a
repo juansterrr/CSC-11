@@ -142,3 +142,54 @@ call crlf
 	exit
 main ENDP
 END main
+
+;====================
+;Attached : HW 3abcde
+;====================
+
+;Program: HW_3d
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program adds to values togehter 
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+num1 DWORD 2
+num2 DWORD 2
+addz DWORD ?
+diff DWORD ?
+msgsum BYTE "The sum of the 2 values is: ", 0
+msgsub BYTE "The difference of the 2 values is: ", 0
+.code
+
+main PROC
+;---------------------------
+inc num1
+dec num2
+
+mov eax, num1
+;---------------------------
+add eax, num2
+mov addz, eax
+mov edx, offset msgsum 
+call WriteString
+call WriteDec
+dec eax
+;----------------------------
+call crlf
+sub eax, num2
+mov diff, eax
+mov edx, offset msgsum 
+call WriteString
+call WriteDec
+
+	exit
+
+main ENDP
+END main
