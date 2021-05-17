@@ -37,3 +37,66 @@ call DumpRegs
 	exit
 main ENDP
 END main
+
+;====================
+;Attached : HW 3abcde
+;====================
+
+;Program: HW_3b
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program 
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+num2 DWORD ?
+tot DWORD ?
+msg1 BYTE "This program calculates the area of a rectangle.",0 
+entWid BYTE "Enter the Width of the rectangle: ",0
+entLen BYTE "Now enter the Length of the rectangle: ",0
+totmsg BYTE "The Area of the rectangle is: ", 0
+
+.code
+
+main PROC
+
+mov edx, offset msg1 
+call WriteString 
+call crlf
+
+call crlf
+mov edx, offset entWid
+call WriteString 
+call readint
+
+mov tot, eax
+mov ebx, tot
+
+call crlf
+mov edx, offset entLen
+call WriteString 
+call readint
+
+mov num2, eax
+
+mul tot
+
+call crlf
+mov edx, offset totmsg
+call WriteString 
+call WriteDec
+call crlf 
+
+
+
+
+	exit
+main ENDP
+END main
+
