@@ -2,7 +2,7 @@
 ;Attached : HW 4abcd
 ;====================
 
-;Program: HW_4a
+;Program: HW_4b
 ;Class: CIS - 11
 ;Programmer: Juan Lopez
 
@@ -51,7 +51,7 @@ END main
 ;Attached : HW 4abcd
 ;====================
 
-;Program: HW_4b
+;Program: HW_4c
 ;Class: CIS - 11
 ;Programmer: Juan Lopez
 
@@ -92,6 +92,96 @@ L1: mov edx, OFFSET corPW
 	call WriteString 
 	call Crlf 
 L2:
+
+	exit
+
+main ENDP
+END main
+
+;====================
+;Attached : HW 4abcd
+;====================
+
+;Program: HW_4d   
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program 
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+entAge BYTE "Enter the ages of 10 students: ",0
+indAge BYTE "Enter the age: ",0
+youngAge BYTE "The youngest student is: ",0
+oldAge BYTE "The oldest student is: ",0
+string1 BYTE 'years old',0
+age SDWORD 10 DUP(?)
+max SDWORD 0
+min SDWORD 100
+
+
+.code
+
+
+main PROC
+;------------------
+mov edx, OFFSET entAge 
+call WriteString  
+call crlf 
+mov esi, OFFSET age 
+mov ecx, 0
+;------------------
+.WHILE ecx < 10 
+	inc ecx 
+	mov edx, OFFSET indAge 
+	call WriteString 
+	call Readint 
+	mov [esi], eax
+	add esi, TYPE age 
+.ENDW
+;------------------
+mov edi, OFFSET age
+mov ecx, 0 
+;------------------
+.REPEAT 
+	inc ecx
+	mov eax, [edi]
+	add edi, TYPE age 
+
+	.IF eax > max 
+		mov max, eax
+	.ENDIF 
+
+	.IF eax < min
+		mov min, eax
+	.ENDIF 
+
+.UNTIL ecx == 10
+
+;------------------
+call crlf 
+mov edx, OFFSET youngAge 
+call WriteString 
+;------------------
+mov eax, min
+call WriteDec
+mov edx, OFFSET string1 
+call WriteString 
+call Crlf
+;------------------
+mov edx, OFFSET oldAge 
+call WriteString 
+mov eax, max
+call WriteDec
+mov edx, OFFSET string1
+call WriteString 
+call crlf
+
 
 	exit
 
