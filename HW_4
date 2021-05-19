@@ -1,0 +1,49 @@
+;====================
+;Attached : HW 4abcd
+;====================
+
+;Program: HW_4a
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program asks user for password for verification
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+askPW BYTE "Enter your password: ", 0
+corPW BYTE "You are logged in!",0
+incPW BYTE "Invalid password",0
+officialPW DWORD 12345
+inpPW DWORD ?
+.code
+
+
+main PROC
+;------------------
+mov edx, OFFSET askPW 
+call WriteString 
+call ReadInt 
+mov inpPW, eax
+mov ebx, officialPW 
+call crlf 
+;------------------
+.IF ebx == eax 
+	mov edx, OFFSET corPW 
+	call WriteString 
+	call Crlf 
+;------------------
+.ELSE 
+	mov edx, OFFSET incPW
+	call WriteString 
+	call Crlf 
+
+.ENDIF
+	exit
+
+main ENDP
+END main
