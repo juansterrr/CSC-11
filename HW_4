@@ -47,3 +47,53 @@ call crlf
 
 main ENDP
 END main
+;====================
+;Attached : HW 4abcd
+;====================
+
+;Program: HW_4b
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program verifies the users input for password
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+askPW BYTE "Enter your password: ", 0
+corPW BYTE "You are logged in!",0
+incPW BYTE "Invalid password",0
+officialPW DWORD 12345
+inpPW DWORD ?
+.code
+
+
+main PROC
+;------------------
+mov edx, OFFSET askPW 
+call WriteString 
+call ReadInt 
+mov inpPW, eax
+mov ebx, officialPW 
+call crlf 
+;------------------
+cmp ebx, inpPw
+je L1
+;------------------ 
+	mov edx, OFFSET incPW
+	call WriteString 
+	call Crlf 
+	jmp L2
+L1: mov edx, OFFSET corPW 
+	call WriteString 
+	call Crlf 
+L2:
+
+	exit
+
+main ENDP
+END main
