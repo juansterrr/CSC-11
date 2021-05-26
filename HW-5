@@ -107,3 +107,40 @@ jmp Done
 
 main ENDP
 END main
+
+;====================
+;Attached : HW 5abcd
+;====================
+
+;Program: HW_5c  
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program loops until the ecx = 0
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+
+msg1 BYTE "Do your homework!",0
+
+.code
+
+
+main PROC
+
+mov eax, 5
+.WHILE eax > 0
+	dec eax
+	mov edx, OFFSET msg1
+	call WriteString 
+	call Crlf 
+.ENDW
+	exit
+
+main ENDP
+END main
