@@ -1,0 +1,50 @@
+;====================
+;Attached : HW 5abcd
+;====================
+
+;Program: HW_5a   
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program verifys for even and odd numbers 
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+prompt BYTE "Enter a number: ",0
+eNum BYTE "You entered an even number.",0
+oNum BYTE "You entered an odd number.",0
+
+
+
+.code
+
+
+main PROC
+
+mov edx, OFFSET prompt 
+call WriteString 
+call ReadInt 
+
+AND eax, 1b
+
+cmp eax, 0
+
+je EvenNum 
+mov edx, OFFSET oNum
+call WriteString 
+jmp Done 
+
+EvenNum: 
+mov edx, OFFSET eNum
+call WriteString 
+ 
+ Done:
+	exit
+
+main ENDP
+END main
