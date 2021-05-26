@@ -48,3 +48,62 @@ call WriteString
 
 main ENDP
 END main
+
+;====================
+;Attached : HW 5abcd
+;====================
+
+;Program: HW_5b    
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program verifys even, odd, and zero numbers
+
+INCLUDE Irvine32.inc
+
+
+
+.data
+prompt BYTE "Enter a number: ",0
+zeroOut BYTE "The number is zero.",0
+eNum BYTE "You entered an even number.",0
+oNum BYTE "You entered an odd number.",0
+num1 SDWORD ?
+
+
+.code
+
+
+main PROC
+
+mov edx, OFFSET prompt 
+call WriteString 
+call ReadInt 
+
+cmp eax, 0
+je ZeroNUm 
+jl OddNum
+jg EvenNum
+
+ZeroNum: 
+mov edx, OFFSET ZeroOut 
+call WriteString 
+jmp Done
+
+OddNum:
+mov edx, OFFSET oNum
+call WriteString 
+jmp Done
+
+EvenNum:
+mov edx, OFFSET eNum
+call WriteString 
+jmp Done
+
+ Done:
+	exit
+
+main ENDP
+END main
