@@ -50,16 +50,16 @@ GetIntegerCount endp
 
 PromptForIntegers proc near
 
-
+;--------first loop for the numbers to be inputted-----
 x1:
   
-mov edx,offset msg2       ; Load the effective address of the variable msg1 in data segment to edx
-   call writestring       ; print the string in msg2
-call readInt ; Reading number
-mov numbers[esi],eax ; Storing number in array
-add esi,4 ; Points to next location
-dec ecx ; Reducing count
-cmp ecx,0 ; If not finished
+mov edx,offset msg2       
+   call writestring      
+call readInt ; reads in the numbers being input by the user 
+mov numbers[esi],eax ; stores the users answers into the array 
+add esi,4 ; this points to the next location since it is 4 spaces 
+dec ecx ; Reducing the ecx
+cmp ecx,0 ; cmp the ecx to the value of 0
 jne x1 ; If count not reached to zero loop will repeat
 ret
 
@@ -67,9 +67,7 @@ PromptForIntegers endp
 
 
 CalcSum proc near
-  
-mov edx,offset msg2       ; Load the effective address of the variable msg1 in data segment to edx
-   call writestring       ; print the string in msg2
+;--------adds and calculates the total-----
 mov esi,0
 mov ecx,limit
 x2:
@@ -84,8 +82,8 @@ Calcsum endp
 
 
 DisplaySum proc near
-mov edx,offset msg1       ; Load the effective address of the variable msg1 in data segment to edx
-   call writestring       ; print the string in msg2
+mov edx,offset msg1       
+   call writestring      
 mov eax,sum   
 call writeInt
 ret
