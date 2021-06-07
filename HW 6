@@ -1,39 +1,50 @@
+;====================
+;Attached : HW 6ab
+;====================
+
+;Program: HW_6b 
+;Class: CIS - 11
+;Programmer: Juan Lopez
+
+;====================
+
+; This program uses user number and sums up the values given 
+
 INCLUDE Irvine32.inc
-.386
-.model flat
-.stack 4096
-ExitProcess PROTO, deExitCode:DWORD
+
+
 
 .data
-
-msg1 db 0ah,0dh," The Sum of Integers is:",0
+msg1 BYTE 0ah,0dh, "The Sum of Integers is:",0
 numbers dword 20 dup('$')
-msg2 db 0ah,0dh," Enter a signed integer: ",0
-msg3 db 0ah,0dh," $"
-msg4 db 0ah,0dh," How many integers will be added?",0
-limit dd 0
-sum dd 0
+msg2 BYTE 0ah,0dh,"Enter a signed integer: ",0
+msg3 BYTE 0ah,0dh," $"
+msg4 BYTE 0ah,0dh,"How many integers will be added? ",0
+limit DWORD 0
+sum DWORD 0
 
 .code
 main PROC
   
+;-------procedures for program--------------
 call GetIntegerCount
 call PromptForIntegers
 call CalcSum
 call DisplaySum
-  
+;--------starting a new line---------------- 
 
 call crlf          
 call exitprocess
-
+;----------first procedure call to accept user input-------------
 GetIntegerCount proc near
-mov esi,00
+mov esi,0
 mov edx,offset msg4       ; Load the effective address of the variable msg1 in data segment to edx
    call writestring       ; print the string in msg2
 call readInt
 mov ecx,eax
 mov limit,ecx
 ret
+
 GetIntegerCount endp
 
 
@@ -46,10 +57,10 @@ mov edx,offset msg2       ; Load the effective address of the variable msg1 in d
    call writestring       ; print the string in msg2
 call readInt ; Reading number
 mov numbers[esi],eax ; Storing number in array
-add esi,04 ; Points to next location
+add esi,4 ; Points to next location
 dec ecx ; Reducing count
-cmp ecx,00 ; If not finished
-jnz x1 ; If count not reached to zero loop will repeat
+cmp ecx,0 ; If not finished
+jne x1 ; If count not reached to zero loop will repeat
 ret
 
 PromptForIntegers endp
@@ -59,7 +70,7 @@ CalcSum proc near
   
 mov edx,offset msg2       ; Load the effective address of the variable msg1 in data segment to edx
    call writestring       ; print the string in msg2
-mov esi,00
+mov esi,0
 mov ecx,limit
 x2:
 mov eax,numbers[esi]
@@ -80,6 +91,6 @@ call writeInt
 ret
 DisplaySum endp   
 
-  
+  exit 
 main ENDP
 END main
