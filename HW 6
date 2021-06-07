@@ -1,1 +1,85 @@
+INCLUDE Irvine32.inc
+.386
+.model flat
+.stack 4096
+ExitProcess PROTO, deExitCode:DWORD
 
+.data
+
+msg1 db 0ah,0dh," The Sum of Integers is:",0
+numbers dword 20 dup('$')
+msg2 db 0ah,0dh," Enter a signed integer: ",0
+msg3 db 0ah,0dh," $"
+msg4 db 0ah,0dh," How many integers will be added?",0
+limit dd 0
+sum dd 0
+
+.code
+main PROC
+  
+call GetIntegerCount
+call PromptForIntegers
+call CalcSum
+call DisplaySum
+  
+
+call crlf          
+call exitprocess
+
+GetIntegerCount proc near
+mov esi,00
+mov edx,offset msg4       ; Load the effective address of the variable msg1 in data segment to edx
+   call writestring       ; print the string in msg2
+call readInt
+mov ecx,eax
+mov limit,ecx
+ret
+GetIntegerCount endp
+
+
+PromptForIntegers proc near
+
+
+x1:
+  
+mov edx,offset msg2       ; Load the effective address of the variable msg1 in data segment to edx
+   call writestring       ; print the string in msg2
+call readInt ; Reading number
+mov numbers[esi],eax ; Storing number in array
+add esi,04 ; Points to next location
+dec ecx ; Reducing count
+cmp ecx,00 ; If not finished
+jnz x1 ; If count not reached to zero loop will repeat
+ret
+
+PromptForIntegers endp
+
+
+CalcSum proc near
+  
+mov edx,offset msg2       ; Load the effective address of the variable msg1 in data segment to edx
+   call writestring       ; print the string in msg2
+mov esi,00
+mov ecx,limit
+x2:
+mov eax,numbers[esi]
+add sum,eax
+add esi,4
+dec ecx
+jnz x2
+ret
+  
+Calcsum endp   
+
+
+DisplaySum proc near
+mov edx,offset msg1       ; Load the effective address of the variable msg1 in data segment to edx
+   call writestring       ; print the string in msg2
+mov eax,sum   
+call writeInt
+ret
+DisplaySum endp   
+
+  
+main ENDP
+END main
